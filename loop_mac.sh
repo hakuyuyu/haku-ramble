@@ -10,7 +10,7 @@ fi
 
 
 
-# Start from target date (set this to your desired end date)
+# Start from target date (2025-01-02) and go forwards to fill gaps in 2025
 
 current_date="2025-01-02"
 
@@ -25,9 +25,9 @@ do
 
    sh ./push.sh
 
-   # Subtract 1 day (macOS date syntax)
+   # Add 1 day (macOS date syntax) - going forwards from 2025-01-02
 
-   current_date=$(date -j -v-1d -f "%Y-%m-%d" "$current_date" "+%Y-%m-%d")
+   current_date=$(date -j -v+1d -f "%Y-%m-%d" "$current_date" "+%Y-%m-%d")
 
 done
 
